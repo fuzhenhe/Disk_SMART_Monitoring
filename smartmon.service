@@ -1,0 +1,15 @@
+[Unit]
+Description=Disk S.M.A.R.T. monitor service
+
+
+[Service]
+Type=forking
+ExecStart=/opt/smartmon/smartmon.py start
+ExecStop=/opt/smartmon/smartmon.py stop
+PIDFile=/var/run/smartmon.pid
+GuessMainPID=no
+RestartSec=1
+
+
+[Install]
+WantedBy=multi-user.target
