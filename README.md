@@ -2,6 +2,7 @@
 monitor disk smart status and attributes
 
 # check disk list
+```
 root@CH-CephOsd01:/home/chadmin# fdisk -l 2>/dev/null | grep "^Disk /dev/sd[a-z]: "
 Disk /dev/sda: 120.0 GB, 120034123776 bytes
 Disk /dev/sdb: 120.0 GB, 120034123776 bytes
@@ -16,4 +17,5 @@ Disk /dev/sdk: 8001.6 GB, 8001563222016 bytes
 Disk /dev/sdg: 8001.6 GB, 8001563222016 bytes
 Disk /dev/sdh: 8001.6 GB, 8001563222016 bytes
 Disk /dev/sdm: 120.0 GB, 120034123776 bytes
+```
 
