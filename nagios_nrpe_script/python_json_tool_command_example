@@ -1,0 +1,43 @@
+root@ubuntu:~# python -m json.tool /dev/shm/smartmon_status
+{
+    "sda:megaraid:2": {
+        "capacity": "999 GB",
+        "check_time": "2016-11-03 08:59:53",
+        "osd_id": null,
+        "smart_attributes_check": "PASSED",
+        "smart_health_check": "PASSED"
+    },
+    "sda:megaraid:3": {
+        "capacity": "999 GB",
+        "check_time": "2016-11-03 08:59:53",
+        "osd_id": null,
+        "smart_attributes_check": "PASSED",
+        "smart_health_check": "PASSED"
+    },
+    "sdb:megaraid:0": {
+        "capacity": "4000 GB",
+        "check_time": "2016-11-03 08:59:53",
+        "osd_id": null,
+        "smart_attributes_check": "Error",
+        "smart_health_check": "Error"
+    },
+    "sdb:megaraid:1": {
+        "capacity": "4000 GB",
+        "check_time": "2016-11-03 08:59:53",
+        "osd_id": null,
+        "smart_attributes_check": "Error",
+        "smart_health_check": "Error"
+    }
+}
+
+
+root@l-osd00:~/smartmon# cat /dev/shm/smartmon_status | python -c 'import sys,json;data=json.loads(sys.stdin.read()); print json.dumps(data["sda"])'| python -m json.tool
+{
+    "capacity": "1998 GB",
+    "check_time": "2016-11-28 07:38:20",
+    "osd_id": null
+}
+
+root@l-osd00:~/smartmon# cat /dev/shm/smartmon_status | python -c 'import sys,json;data=json.loads(sys.stdin.read()); print json.dumps(data["sda"])'
+{"osd_id": null, "capacity": "1998 GB", "check_time": "2016-11-28 07:38:20"}
+
